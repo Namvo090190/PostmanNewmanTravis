@@ -1,0 +1,109 @@
+{
+	"info": {
+		"_postman_id": "ef7cb1ab-0a6e-4787-960e-fe62a404c646",
+		"name": "NewMan",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get username postman echo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Api trả về username là namvo\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.args.username).to.eql(\"namvo\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://postman-echo.com/get?username=namvo",
+					"protocol": "https",
+					"host": [
+						"postman-echo",
+						"com"
+					],
+					"path": [
+						"get"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "namvo"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get info postman-echo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Api trả về username là namvo\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.data.userName).to.eql(\"namvo\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Api trả về name là Nam Kevin\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.data.name).to.eql(\"Nam Kevin\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Nam Kevin\",\r\n    \"userName\": \"namvo\",\r\n    \"location\": \"Bình Thạnh, HCM, Việt Nam\",\r\n    \"company\": \"Foody\",\r\n    \"jobTitle\": \"QA\",\r\n    \"updatedAt\": \"1565088856\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://postman-echo.com/post?uid=0901",
+					"protocol": "https",
+					"host": [
+						"postman-echo",
+						"com"
+					],
+					"path": [
+						"post"
+					],
+					"query": [
+						{
+							"key": "uid",
+							"value": "0901"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

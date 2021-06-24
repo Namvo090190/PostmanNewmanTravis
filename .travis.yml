@@ -1,0 +1,9 @@
+language: node_js
+node_js:
+  - '16.4.0'
+
+install:
+  - npm install newman
+
+script:
+  - node_modules/.bin/newman run tests/NewMan.json
