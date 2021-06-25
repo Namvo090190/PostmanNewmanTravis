@@ -6,4 +6,4 @@ install:
   - npm install newman
 
 script:
-  - node_modules/.bin/newman run tests/NewMan.json -r htmlextra
+  - node_modules/.bin/newman run tests/NewMan.json -r htmlextra --reporter-htmlextra-export new_travis.html
